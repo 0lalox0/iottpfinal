@@ -1,0 +1,3 @@
+- Que onda lo del WEB server embebido + panel cloud / telegram se hace uno los 2?
+- Podemos hacer todo conectado sin probar si anda con la bateria?
+- Me das un cable para el sensor?
