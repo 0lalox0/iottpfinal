@@ -1,0 +1,41 @@
+services:
+  mqtt:
+    image: "eclipse-mosquitto:latest"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config:z
+      - ./mosquitto/data:/mosquitto/data:z
+    ports:
+      - "1883:1883"  # Puerto MQTT estándar
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+  influxdb:
+    image: influxdb:1.8
+    ports:
+      - "8086:8086"
+    environment:
+      - INFLUXDB_DB=iot
+    volumes:
+      - ./influxdb_data:/var/lib/influxdb:z
+  nodered:
+    image: nodered/node-red
+    environment:
+      - TZ=America/Argentina/Buenos_Aires
+    ports:
+      - "1880:1880" # Puerto acceso a Nodered
+    volumes:
+      - ./node-red-data:/data:z
+      - /dev/snd:/dev/snd
+    links:
+      - mqtt
+      - influxdb
+  grafana:
+    image: grafana/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    ports:
+      - "3000:3000" # Puerto acceso a Grafana
+    links:
+      - influxdb
+    volumes:
+      - ./grafana-storage:/var/lib/grafana:z
