@@ -1,11 +1,9 @@
 #include <WiFi.h>
 #include "config.h"
 
-const char* ssid = "SSID_WIFI";
-const char* password = "PASS_WIFI";
+const char* ssid = SSID_WIFI;
+const char* password = PASS_WIFI;
 
-
-#define VALUE 5
 
 void setup_wifi(){
   Serial.print("Configurando WIFI");
