@@ -10,7 +10,7 @@
 #define SSID_WIFI "Cj"
 #define PASS_WIFI "poroto22"
 
-#define MQTT_IP_DEFAULT  ""
+#define MQTT_IP_DEFAULT  "10.34.86.217"
 #define MQTT_PORT_DEFAULT  1883
 
 #define MQTT_CLIENT_ID  "Carlitos"

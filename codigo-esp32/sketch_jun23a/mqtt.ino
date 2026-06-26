@@ -64,6 +64,10 @@ void publicar_ambiente(){
   }
 }
 
+void publicar_seguimiento(){
+
+}
+
 void connectMQTT(){
   while(!mqttClient.connected()){
     Serial.print("Conectando a BROKER MQTT");
@@ -74,8 +78,14 @@ void connectMQTT(){
 
 
     if (connected) {
+      StaticJsonDocument<200> doc;
+      doc["estado"] = "online";
+      doc["dispositivo"] = MQTT_CLIENT_ID;
+      char jsonBuffer[256];
+      serializeJson(doc, jsonBuffer);
       Serial.println("MQTT CONECTADO");
-      mqttClient.publish(topico_status, "online", true);
+
+      mqttClient.publish(topico_status, jsonBuffer, true);
       
       Serial.println("CONFIGURAICON MQTT");
     }
