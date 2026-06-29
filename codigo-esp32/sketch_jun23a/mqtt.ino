@@ -74,7 +74,7 @@ void connectMQTT(){
     Serial.println(mqtt_server);
 
     bool connected;
-    connected = mqttClient.connect(MQTT_CLIENT_ID);
+    connected = mqttClient.connect(MQTT_CLIENT_ID, topico_status, 0, true, "offline");
 
 
     if (connected) {
