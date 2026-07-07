@@ -1,25 +1,40 @@
 #include "config.h"
 #include <PubSubClient.h>
+#include <WiFi.h>
+#include <Preferences.h>
 
+Preferences prefs;
 extern PubSubClient mqttClient;
+extern WiFiClient espclient;
+
+
+unsigned int deep_sleep_time;
 
 void setup() {
   Serial.begin(115200);
+  prefs.begin("nv-data", false);
+  deep_sleep_time = prefs.getUInt("deep_sleep_time", DEFAULT_DEEP_SLEEP_TIME);
   setup_wifi();
 
   mqtt_init();
   connectMQTT();
-  mqttClient.loop();
   publicar_ambiente();
+  
+ for(int i = 0; i < 10; i++) {
+    mqttClient.loop();
+    delay(100);
+  }
+  
+
   Serial.println("ME DUERMO");
-  ESP.deepSleep(DEFAULT_SLEEP_TIME * 10000);
+  ESP.deepSleep(deep_sleep_time * 60 * 1000000);
   
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
   // if(!mqttClient.connected()){
-    connectMQTT();
+    //connectMQTT();
   // }
   // mqttClient.loop();
 

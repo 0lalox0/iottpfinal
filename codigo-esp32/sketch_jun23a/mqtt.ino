@@ -2,6 +2,10 @@
 #include <PubSubClient.h>
 #include <ArduinoJson.h>
 #include <WiFi.h>
+#include <Preferences.h>
+
+extern unsigned int deep_sleep_time;
+extern Preferences prefs;
 
 const char *mqtt_server = MQTT_IP_DEFAULT;
 const int mqtt_port = MQTT_PORT_DEFAULT;
@@ -18,11 +22,30 @@ void mqttCallBack(char *topic, byte *payload, unsigned int length){
   Serial.print("Mensaje recibido en [");
   Serial.print(topic);
   Serial.print("]: ");
-
-  for(int i = 0; i < length; i++){
-    Serial.print((char) payload[i]);
+  String mensaje = "";
+  for (int i = 0; i < length; i++) {
+    mensaje += (char)payload[i];
   }
-  Serial.println();
+
+  if(String(topic) == "sensores/configuracion/deep_sleep"){
+    Serial.print("Se recibio el msg che");
+    Serial.println();
+    Serial.println(mensaje);
+    JsonDocument doc;
+    deserializeJson(doc, mensaje);
+    unsigned int valor = doc["valor"];
+    Serial.print("VALOR EN VALOR: ");
+    Serial.println(valor);
+
+    
+    
+    if(valor != deep_sleep_time){
+      Serial.println("CAMBIANDO VALORES PARA DEEP_SLEEP");
+      prefs.putUInt("deep_sleep_time", valor);
+      deep_sleep_time = valor;
+    }
+
+  }
 }
 
 void publicar_ambiente(){
@@ -64,9 +87,7 @@ void publicar_ambiente(){
   }
 }
 
-void publicar_seguimiento(){
 
-}
 
 void connectMQTT(){
   while(!mqttClient.connected()){
@@ -75,7 +96,7 @@ void connectMQTT(){
 
     bool connected;
     connected = mqttClient.connect(MQTT_CLIENT_ID, topico_status, 0, true, "offline");
-
+    mqttClient.subscribe("sensores/configuracion/deep_sleep");
 
     if (connected) {
       StaticJsonDocument<200> doc;
@@ -87,7 +108,7 @@ void connectMQTT(){
 
       mqttClient.publish(topico_status, jsonBuffer, true);
       
-      Serial.println("CONFIGURAICON MQTT");
+      Serial.println("CONFIGURACION MQTT");
     }
   }
 }

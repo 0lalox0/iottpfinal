@@ -4,13 +4,15 @@
 /*Sección conexiónes al modulo*/
 #define PIN_DHT 4
 
-/*Sección de configuraciones por defecto de espera*/
-#define DEFAULT_SLEEP_TIME 6
+/*Sección de configuraciones */
+#define DEFAULT_DEEP_SLEEP_TIME 1
+#define DEFAULT_TEMP_DANGER 20
+#define DEFAULT_HUM_DANGER 16
 
-#define SSID_WIFI "Cj"
-#define PASS_WIFI "poroto22"
+#define SSID_WIFI "Parara"
+#define PASS_WIFI "Miranda330"
 
-#define MQTT_IP_DEFAULT  "10.177.251.238"
+#define MQTT_IP_DEFAULT  "192.168.0.78"
 #define MQTT_PORT_DEFAULT  1883
 
 #define MQTT_CLIENT_ID  "Carlitos"
