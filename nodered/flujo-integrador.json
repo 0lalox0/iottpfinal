@@ -1,15 +1,15 @@
 [
     {
-        "id": "f6f2187d.f17ca8",
+        "id": "c7e541e4890e4858",
         "type": "tab",
         "label": "FLUJO DE INTEGRADOR :)",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "96c825bc45002041",
+        "id": "97b7f71a7606a2fd",
         "type": "group",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "Obtención de información del ambiente",
         "style": {
             "stroke": "#a4a4a4",
@@ -19,17 +19,18 @@
             "color": "#000000"
         },
         "nodes": [
-            "f33b1970bae58ab6",
-            "c722252e9249c5f9",
-            "863e8239018e9dae",
-            "3994be954795c847",
-            "f11e71571034be14",
-            "ab0b13e1bc4e7044",
-            "ec0dc0eb5facfeb2",
-            "9e29228f87aa3710",
-            "a2d9682082327b7c",
-            "99bfa1f6dacb461d",
-            "9599be435b82c01b"
+            "54d834538e1f4426",
+            "a9d7b6ea4ac87a93",
+            "1b4028fa0662dec3",
+            "1cbb3b45a1f779da",
+            "71de4c363a5f3875",
+            "9e0baab2fd727749",
+            "d5d173e52ca350de",
+            "13c6637d59e9dc58",
+            "a79c0ea2be329839",
+            "d671db1158d5f2bd",
+            "7b57c1c3b4810fe0",
+            "324a8339e37f9a3a"
         ],
         "x": 14,
         "y": -1,
@@ -37,9 +38,9 @@
         "h": 302
     },
     {
-        "id": "651945f5b9f2fc9a",
+        "id": "5e195b458c4a1751",
         "type": "group",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "Configuración de temperatura",
         "style": {
             "stroke": "#000000",
@@ -49,11 +50,11 @@
             "color": "#000000"
         },
         "nodes": [
-            "404e24dfc47c02f9",
-            "d7ea58614ed76a84",
-            "6603efe9830e1ade",
-            "b849b744cc6e3f1d",
-            "22a2b24ce927b6b8"
+            "3d281a6de0a8ec99",
+            "1d49c03c3612384a",
+            "33b118c270760770",
+            "0cd7106fa5a55e30",
+            "e748e89ea94c1a90"
         ],
         "x": 14,
         "y": 839,
@@ -61,9 +62,9 @@
         "h": 202
     },
     {
-        "id": "a3163b138a0b2545",
+        "id": "02598c67ee14e46a",
         "type": "group",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "Configuración de humedad",
         "style": {
             "stroke": "#000000",
@@ -73,20 +74,20 @@
             "color": "#000000"
         },
         "nodes": [
-            "bea79c4d30ca8777",
-            "90e3b92898d0092d",
-            "d1a26b86e207c2f5",
-            "292fe07942469879"
+            "5f0b957c570ff1e4",
+            "f3c1ea32531e6f2c",
+            "771963c1ca9120da",
+            "de9b3fc932c0f5c8"
         ],
         "x": 14,
-        "y": 579,
-        "w": 692,
-        "h": 202
+        "y": 599,
+        "w": 752,
+        "h": 162
     },
     {
-        "id": "4b1949201b6cb715",
+        "id": "33141fa6de4a6621",
         "type": "group",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "Configuración de deep_sleep",
         "style": {
             "stroke": "#000000",
@@ -96,11 +97,11 @@
             "color": "#000000"
         },
         "nodes": [
-            "0356df8078018ac3",
-            "b89e2be1477e815e",
-            "b55e9996505a42be",
-            "1bc8d45287baadc4",
-            "f468befd970ba541"
+            "71f940b7e505c0d5",
+            "bb95b81b0a5bb9dd",
+            "73f6dbc2899c7978",
+            "b053c2b804651f26",
+            "dd76d7b069520ac5"
         ],
         "x": 14,
         "y": 339,
@@ -108,10 +109,31 @@
         "h": 202
     },
     {
-        "id": "863e8239018e9dae",
+        "id": "cf503ccc16cfba68",
+        "type": "group",
+        "z": "c7e541e4890e4858",
+        "name": "Suscripción al bot ",
+        "style": {
+            "stroke": "#000000",
+            "fill": "#addb7b",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "a5f7336a693f0cc3",
+            "87f0bf3eaf762ffb"
+        ],
+        "x": 874,
+        "y": 339,
+        "w": 372,
+        "h": 82
+    },
+    {
+        "id": "1b4028fa0662dec3",
         "type": "junction",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "x": 420,
         "y": 120,
         "wires": [
@@ -119,10 +141,10 @@
         ]
     },
     {
-        "id": "f33b1970bae58ab6",
+        "id": "54d834538e1f4426",
         "type": "mqtt in",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "",
         "topic": "sensores/ambiente",
         "qos": "2",
@@ -136,16 +158,16 @@
         "y": 120,
         "wires": [
             [
-                "c722252e9249c5f9",
-                "3994be954795c847"
+                "a9d7b6ea4ac87a93",
+                "1cbb3b45a1f779da"
             ]
         ]
     },
     {
-        "id": "c722252e9249c5f9",
+        "id": "a9d7b6ea4ac87a93",
         "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "debug 1",
         "active": true,
         "tosidebar": true,
@@ -160,10 +182,10 @@
         "wires": []
     },
     {
-        "id": "3994be954795c847",
+        "id": "1cbb3b45a1f779da",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "formateador",
         "func": "const temperatura = msg.payload.temperatura;\nconst humedad = msg.payload.humedad;\nconst dispositivo = msg.payload.dispositivo;\n\n\nmsg.payload = `ambiente,dispositivo=${dispositivo} temperatura=${temperatura},humedad=${humedad}`;\nmsg.datos = {\n    dispositivo: dispositivo,\n    temperatura: temperatura,\n    humedad: humedad\n};\n\nreturn msg\n",
         "outputs": 1,
@@ -176,17 +198,17 @@
         "y": 200,
         "wires": [
             [
-                "f11e71571034be14",
-                "a2d9682082327b7c",
-                "99bfa1f6dacb461d"
+                "71de4c363a5f3875",
+                "a79c0ea2be329839",
+                "d671db1158d5f2bd"
             ]
         ]
     },
     {
-        "id": "f11e71571034be14",
+        "id": "71de4c363a5f3875",
         "type": "http request",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "influx-post",
         "method": "POST",
         "ret": "txt",
@@ -213,10 +235,10 @@
         ]
     },
     {
-        "id": "404e24dfc47c02f9",
+        "id": "3d281a6de0a8ec99",
         "type": "telegram command",
-        "z": "f6f2187d.f17ca8",
-        "g": "651945f5b9f2fc9a",
+        "z": "c7e541e4890e4858",
+        "g": "5e195b458c4a1751",
         "name": "",
         "command": "/configurar_temperatura",
         "description": "Configuracion de temperatura",
@@ -233,16 +255,16 @@
         "y": 940,
         "wires": [
             [
-                "b849b744cc6e3f1d",
-                "6603efe9830e1ade"
+                "0cd7106fa5a55e30",
+                "33b118c270760770"
             ]
         ]
     },
     {
-        "id": "bea79c4d30ca8777",
+        "id": "5f0b957c570ff1e4",
         "type": "telegram command",
-        "z": "f6f2187d.f17ca8",
-        "g": "a3163b138a0b2545",
+        "z": "c7e541e4890e4858",
+        "g": "02598c67ee14e46a",
         "name": "",
         "command": "/configurar_humedad",
         "description": "",
@@ -259,16 +281,16 @@
         "y": 680,
         "wires": [
             [
-                "d1a26b86e207c2f5",
-                "292fe07942469879"
+                "771963c1ca9120da",
+                "de9b3fc932c0f5c8"
             ]
         ]
     },
     {
-        "id": "d7ea58614ed76a84",
+        "id": "1d49c03c3612384a",
         "type": "telegram sender",
-        "z": "f6f2187d.f17ca8",
-        "g": "651945f5b9f2fc9a",
+        "z": "c7e541e4890e4858",
+        "g": "5e195b458c4a1751",
         "name": "",
         "bot": "02d0723b5e9b15f8",
         "haserroroutput": false,
@@ -280,10 +302,10 @@
         ]
     },
     {
-        "id": "6603efe9830e1ade",
+        "id": "33b118c270760770",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "651945f5b9f2fc9a",
+        "z": "c7e541e4890e4858",
+        "g": "5e195b458c4a1751",
         "name": "function 2",
         "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    return \"\";\n}\nelse {\n    const value = Number(content);\n\n    if (typeof value === 'number' && value >= 0 && value <= 100){\n        global.set(\"alertaTemperatura\", value);\n    }\n    else {\n        return \"\"\n    }\n}\n\n",
         "outputs": 1,
@@ -299,10 +321,10 @@
         ]
     },
     {
-        "id": "b849b744cc6e3f1d",
+        "id": "0cd7106fa5a55e30",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "651945f5b9f2fc9a",
+        "z": "c7e541e4890e4858",
+        "g": "5e195b458c4a1751",
         "name": "function 4",
         "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    msg.payload.content = \"Por favor use el comando ingresando la temperatura deseada a configurar\\n \\\n    los valores validos son desde 0 hasta 100 C°\";\n    return msg;\n}\n\nconst value = Number(content);\n\nif (typeof value === 'number' && value >= 0 && value <= 100){\n    msg.payload.content = `valor de ${value} configurado para temperatura`;\n}\nelse {\n    msg.payload.content = \"ups\";\n}\n\nreturn msg;\n",
         "outputs": 1,
@@ -315,31 +337,31 @@
         "y": 880,
         "wires": [
             [
-                "d7ea58614ed76a84",
-                "22a2b24ce927b6b8"
+                "1d49c03c3612384a",
+                "e748e89ea94c1a90"
             ]
         ]
     },
     {
-        "id": "90e3b92898d0092d",
+        "id": "f3c1ea32531e6f2c",
         "type": "telegram sender",
-        "z": "f6f2187d.f17ca8",
-        "g": "a3163b138a0b2545",
+        "z": "c7e541e4890e4858",
+        "g": "02598c67ee14e46a",
         "name": "",
         "bot": "02d0723b5e9b15f8",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 590,
-        "y": 620,
+        "x": 650,
+        "y": 640,
         "wires": [
             []
         ]
     },
     {
-        "id": "d1a26b86e207c2f5",
+        "id": "771963c1ca9120da",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "a3163b138a0b2545",
+        "z": "c7e541e4890e4858",
+        "g": "02598c67ee14e46a",
         "name": "function 1",
         "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    msg.payload.content = \"Por favor use el comando ingresando la temperatura deseada a configurar\\n \\\n    los valores validos son desde 0 hasta 100 %\";\n    return msg;\n}\n\nconst value = Number(content);\n\nif (typeof value === 'number' && value >= 0 && value <= 100){\n    msg.payload.content = `valor de ${value}% configurado para humedad`;\n}\nelse {\n    msg.payload.content = \"ups\";\n}\n\nreturn msg;\n",
         "outputs": 1,
@@ -349,18 +371,18 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
-                "90e3b92898d0092d"
+                "f3c1ea32531e6f2c"
             ]
         ]
     },
     {
-        "id": "292fe07942469879",
+        "id": "de9b3fc932c0f5c8",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "a3163b138a0b2545",
+        "z": "c7e541e4890e4858",
+        "g": "02598c67ee14e46a",
         "name": "function 3",
         "func": "const content = msg.payload.content;\n\nglobal.set(\"usuario\", { nombre: \"Juan\", edad: 30 });\n\nif(content === \"\"){\n}\nelse {\n    const value = Number(content);\n\n    if (typeof value === 'number' && value >= 0 && value <= 100){\n        global.set(\"alertaHumedad\", value);\n    }\n}\n\n",
         "outputs": 1,
@@ -370,16 +392,16 @@
         "finalize": "",
         "libs": [],
         "x": 360,
-        "y": 740,
+        "y": 720,
         "wires": [
             []
         ]
     },
     {
-        "id": "0356df8078018ac3",
+        "id": "71f940b7e505c0d5",
         "type": "telegram command",
-        "z": "f6f2187d.f17ca8",
-        "g": "4b1949201b6cb715",
+        "z": "c7e541e4890e4858",
+        "g": "33141fa6de4a6621",
         "name": "",
         "command": "/configurar_deep_sleep",
         "description": "",
@@ -396,16 +418,16 @@
         "y": 440,
         "wires": [
             [
-                "b55e9996505a42be",
-                "1bc8d45287baadc4"
+                "73f6dbc2899c7978",
+                "b053c2b804651f26"
             ]
         ]
     },
     {
-        "id": "b89e2be1477e815e",
+        "id": "bb95b81b0a5bb9dd",
         "type": "telegram sender",
-        "z": "f6f2187d.f17ca8",
-        "g": "4b1949201b6cb715",
+        "z": "c7e541e4890e4858",
+        "g": "33141fa6de4a6621",
         "name": "",
         "bot": "02d0723b5e9b15f8",
         "haserroroutput": false,
@@ -417,10 +439,10 @@
         ]
     },
     {
-        "id": "b55e9996505a42be",
+        "id": "73f6dbc2899c7978",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "4b1949201b6cb715",
+        "z": "c7e541e4890e4858",
+        "g": "33141fa6de4a6621",
         "name": "function 5",
         "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    msg.payload.content = \"Por favor use el comando ingresando el tiempo deseado en minutos, los valores validos son enteros mayores a 0\";\n    return msg;\n}\n\nconst value = Number(content);\n\nif (typeof value === 'number' && value > 0){\n    msg.payload.content = `valor de ${value}' configurado como tiempo entre mediciones`;\n}\nelse {\n    msg.payload.content = \"ups\";\n}\n\nreturn msg;\n",
         "outputs": 1,
@@ -433,15 +455,15 @@
         "y": 380,
         "wires": [
             [
-                "b89e2be1477e815e"
+                "bb95b81b0a5bb9dd"
             ]
         ]
     },
     {
-        "id": "1bc8d45287baadc4",
+        "id": "b053c2b804651f26",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "4b1949201b6cb715",
+        "z": "c7e541e4890e4858",
+        "g": "33141fa6de4a6621",
         "name": "function 6",
         "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    return \"\";\n}\nelse {\n    const value = Number(content);\n\n    if (typeof value === 'number' && value > 0 ){\n        msg.payload = {valor: value, limite:\"deep_sleep\"};\n        return msg;\n    }\n    else {\n        return \"\"\n    }\n}\n\n",
         "outputs": 1,
@@ -454,15 +476,15 @@
         "y": 500,
         "wires": [
             [
-                "f468befd970ba541"
+                "dd76d7b069520ac5"
             ]
         ]
     },
     {
-        "id": "f468befd970ba541",
+        "id": "dd76d7b069520ac5",
         "type": "mqtt out",
-        "z": "f6f2187d.f17ca8",
-        "g": "4b1949201b6cb715",
+        "z": "c7e541e4890e4858",
+        "g": "33141fa6de4a6621",
         "name": "",
         "topic": "sensores/configuracion/deep_sleep",
         "qos": "1",
@@ -478,9 +500,9 @@
         "wires": []
     },
     {
-        "id": "dd5d28d8c9bbd9a5",
+        "id": "f0ce40cd2dd49745",
         "type": "mqtt in",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "",
         "topic": "sensores/configuracion/deep_sleep",
         "qos": "1",
@@ -494,14 +516,14 @@
         "y": 140,
         "wires": [
             [
-                "ee2cf4a7d9125196"
+                "8b2d41d34f5b91aa"
             ]
         ]
     },
     {
-        "id": "ee2cf4a7d9125196",
+        "id": "8b2d41d34f5b91aa",
         "type": "debug",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -515,12 +537,12 @@
         "wires": []
     },
     {
-        "id": "ab0b13e1bc4e7044",
+        "id": "9e0baab2fd727749",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "function 7",
-        "func": "/*\ng.payload must be an object that contains a complete set of telegram message properties, at a minimum these should contain:\n\n    content the message contents\n    type the type of message contents\n    chatId the chatId number or an array of chatIds\n*/\n\nconst valores = msg.datos;\nmsg = {}\n\nmsg.payload = {}\nmsg.payload.content = `La temperatura esta alta :( se detecto ${valores.temperatura} °C`\nmsg.payload.type = \"message\"\nmsg.payload.chatId = -5448474721\n\n\n\n    \nreturn msg;\n",
+        "func": "const valores = msg.datos;\n\nlet retorno = [[]]\n\nconst suscriptos = global.get(\"chats\");\n\nsuscriptos.forEach(function(suscripto) {\n    const temp = {};\n    temp.payload = {};\n    temp.payload.content = `La temperatura esta alta :( se detecto ${valores.temperatura} °C`\n    temp.payload.type = \"message\"\n    temp.payload.chatId = suscripto\n    retorno[0].push(temp)\n    \n});\n\n\nreturn retorno;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -531,16 +553,16 @@
         "y": 80,
         "wires": [
             [
-                "ec0dc0eb5facfeb2",
-                "9e29228f87aa3710"
+                "d5d173e52ca350de",
+                "13c6637d59e9dc58"
             ]
         ]
     },
     {
-        "id": "22a2b24ce927b6b8",
+        "id": "e748e89ea94c1a90",
         "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "g": "651945f5b9f2fc9a",
+        "z": "c7e541e4890e4858",
+        "g": "5e195b458c4a1751",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -549,15 +571,15 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 620,
         "y": 960,
         "wires": []
     },
     {
-        "id": "ec0dc0eb5facfeb2",
+        "id": "d5d173e52ca350de",
         "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -572,10 +594,10 @@
         "wires": []
     },
     {
-        "id": "9e29228f87aa3710",
+        "id": "13c6637d59e9dc58",
         "type": "telegram sender",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "",
         "bot": "02d0723b5e9b15f8",
         "haserroroutput": false,
@@ -587,10 +609,10 @@
         ]
     },
     {
-        "id": "a2d9682082327b7c",
+        "id": "a79c0ea2be329839",
         "type": "switch",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "",
         "property": "datos.temperatura",
         "propertyType": "msg",
@@ -608,15 +630,15 @@
         "y": 120,
         "wires": [
             [
-                "ab0b13e1bc4e7044"
+                "9e0baab2fd727749"
             ]
         ]
     },
     {
-        "id": "99bfa1f6dacb461d",
+        "id": "d671db1158d5f2bd",
         "type": "switch",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "",
         "property": "datos.humedad",
         "propertyType": "msg",
@@ -634,17 +656,17 @@
         "y": 180,
         "wires": [
             [
-                "9599be435b82c01b"
+                "7b57c1c3b4810fe0"
             ]
         ]
     },
     {
-        "id": "9599be435b82c01b",
+        "id": "7b57c1c3b4810fe0",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
-        "g": "96c825bc45002041",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
         "name": "function 8",
-        "func": "/*\ng.payload must be an object that contains a complete set of telegram message properties, at a minimum these should contain:\n\n    content the message contents\n    type the type of message contents\n    chatId the chatId number or an array of chatIds\n*/\n\nconst valores = msg.datos;\nmsg = {}\n\nmsg.payload = {}\nmsg.payload.content = `La humedad esta alta :( se detecto ${valores.humedad} %`\nmsg.payload.type = \"message\"\nmsg.payload.chatId = -5448474721\n\n\nreturn msg;",
+        "func": "/*\ng.payload must be an object that contains a complete set of telegram message properties, at a minimum these should contain:\n\n    content the message contents\n    type the type of message contents\n    chatId the chatId number or an array of chatIds\n*/\n\nconst valores = msg.datos;\n\nlet retorno = [[]]\n\nconst suscriptos = global.get(\"chats\");\n\nsuscriptos.forEach(function(suscripto) {\n    const temp = {};\n    temp.payload = {};\n    temp.payload.content = `La humedad esta alta :( se detecto ${valores.humedad} %`\n    temp.payload.type = \"message\"\n    temp.payload.chatId = suscripto\n    retorno[0].push(temp)\n    \n});\n\n\n\nreturn retorno;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -655,14 +677,16 @@
         "y": 180,
         "wires": [
             [
-                "9e29228f87aa3710"
+                "13c6637d59e9dc58",
+                "324a8339e37f9a3a"
             ]
         ]
     },
     {
-        "id": "089315b35678f760",
+        "id": "a5f7336a693f0cc3",
         "type": "telegram command",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
+        "g": "cf503ccc16cfba68",
         "name": "",
         "command": "/suscribirse",
         "description": "",
@@ -675,49 +699,92 @@
         "useregex": false,
         "removeregexcommand": false,
         "outputs": 1,
-        "x": 950,
-        "y": 420,
+        "x": 970,
+        "y": 380,
         "wires": [
             [
-                "fb4c42443da7588f"
+                "87f0bf3eaf762ffb"
             ]
         ]
     },
     {
-        "id": "fb4c42443da7588f",
+        "id": "87f0bf3eaf762ffb",
         "type": "function",
-        "z": "f6f2187d.f17ca8",
+        "z": "c7e541e4890e4858",
+        "g": "cf503ccc16cfba68",
         "name": "function 9",
-        "func": "if(\"chats\" in global.keys){\n    const id = msg.payload.chatId;\n    if(!global.get(\"chats\").includes(id))\n        global.get(\"chats\").push(id)\n    msg = {}\n    msg.chats = global.get(\"chats\")\n    return msg\n}\nelse{\n    const id = msg.payload.chatId\n    global.set(\"chats\", [id]);\n    msg = {}\n    msg.keys = global.keys()\n    msg.chats = global.get()\n    return msg\n}\n",
+        "func": "if(global.keys().includes(\"chats\")){\n    const id = msg.payload.chatId;\n    if(!global.get(\"chats\").includes(id))\n        global.get(\"chats\").push(id)\n    msg = {}\n    msg.chats = global.get(\"chats\")\n    msg.plop=\"Fue por aqui\"\n    return msg\n}\nelse{\n    const id = msg.payload.chatId\n    global.set(\"chats\", [id]);\n    msg = {}\n    msg.keys = global.keys()\n    msg.chats = global.get(\"chats\")\n    msg.plop=\"Fue por allí\"\n    return msg\n}\n",
         "outputs": 1,
         "timeout": 0,
-        "noerr": 1,
+        "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1140,
-        "y": 420,
+        "x": 1160,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9f30ba0322fea9c6",
+        "type": "mqtt out",
+        "z": "c7e541e4890e4858",
+        "name": "",
+        "topic": "sensores/ambiente",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4c42f4f5f0c456f7",
+        "x": 1350,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "192f55ef94bcdacf",
+        "type": "inject",
+        "z": "c7e541e4890e4858",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temperatura\":10,\"humedad\":10,\"dispositivo\":\"Mbappe\"}",
+        "payloadType": "json",
+        "x": 1070,
+        "y": 580,
         "wires": [
             [
-                "f628f587973fe414"
+                "9f30ba0322fea9c6"
             ]
         ]
     },
     {
-        "id": "f628f587973fe414",
+        "id": "324a8339e37f9a3a",
         "type": "debug",
-        "z": "f6f2187d.f17ca8",
-        "name": "debug 5",
+        "z": "c7e541e4890e4858",
+        "g": "97b7f71a7606a2fd",
+        "name": "debug 7",
         "active": true,
         "tosidebar": true,
-        "console": true,
+        "console": false,
         "tostatus": false,
         "complete": "true",
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1320,
-        "y": 360,
+        "x": 930,
+        "y": 240,
         "wires": []
     },
     {
@@ -779,7 +846,7 @@
         "verboselogging": false
     },
     {
-        "id": "dc92d003f608a963",
+        "id": "9269f243f1f0558e",
         "type": "global-config",
         "env": [],
         "modules": {
