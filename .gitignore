@@ -1,0 +1,6 @@
+# Datos runtime de contenedores Docker (no versionar)
+influxdb_data/
+mosquitto/data/
+grafana-storage/
+node-red-data/
+entorno-docker/mosquitto/data/

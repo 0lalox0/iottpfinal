@@ -1,0 +1,914 @@
+[
+    {
+        "id": "d20f0f62e4603041",
+        "type": "tab",
+        "label": "FLUJO DE INTEGRADOR Final",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "03b06bbd531e1f7e",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Obtención de información del ambiente",
+        "style": {
+            "stroke": "#a4a4a4",
+            "fill": "#ffC000",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "4f4afdb04fe26755",
+            "5219c351647bf7d1",
+            "da554baf8f593e2d",
+            "8b901423d6a56638",
+            "b3eff606d23c8082",
+            "e533bb0c98333d22",
+            "06d1d8e478f42a55",
+            "4618cdba4ff046c3",
+            "9768c6282fa76537",
+            "1803b8fe12e74fb9",
+            "6f2f979de0c7e7cb"
+        ],
+        "x": 14,
+        "y": 59,
+        "w": 1352,
+        "h": 262
+    },
+    {
+        "id": "bef545520eb9b7d4",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Configuración de temperatura",
+        "style": {
+            "stroke": "#000000",
+            "fill": "#ff7f7f",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "17d03bd9282daee9",
+            "de88cc409ff3a230",
+            "be6db7dcc95a648d",
+            "d0f3288d9f3140a9",
+            "7e2fe7f12b575f2d"
+        ],
+        "x": 14,
+        "y": 839,
+        "w": 932,
+        "h": 182
+    },
+    {
+        "id": "098a6cd06c5e44f4",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Configuración de humedad",
+        "style": {
+            "stroke": "#000000",
+            "fill": "#7fb7df",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "8299cc64f77e3a76",
+            "2de43c3baae7866a",
+            "aada4976ce658e3f",
+            "1fdfd66cced5044a",
+            "ef28305e8e0c67d5"
+        ],
+        "x": 14,
+        "y": 579,
+        "w": 1032,
+        "h": 182
+    },
+    {
+        "id": "0846c087dc4e3cf7",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Configuración de deep_sleep",
+        "style": {
+            "stroke": "#000000",
+            "fill": "#9363b7",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "d1c6a4bbe384c678",
+            "edaff2f27ff715d7",
+            "9c1cbf425e4a8795",
+            "9954703499278e9a",
+            "89f87ffb5ce5e38c"
+        ],
+        "x": 14,
+        "y": 339,
+        "w": 992,
+        "h": 202
+    },
+    {
+        "id": "eb0b1a8af82af203",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Suscripción al bot ",
+        "style": {
+            "stroke": "#000000",
+            "fill": "#addb7b",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "3618fb9d8488f5f4",
+            "048d0c1f2e202d93"
+        ],
+        "x": 1174,
+        "y": 419,
+        "w": 472,
+        "h": 82
+    },
+    {
+        "id": "d9be8a935178fd0d",
+        "type": "group",
+        "z": "d20f0f62e4603041",
+        "name": "Simulación de mediciones :)",
+        "style": {
+            "stroke": "#ffff3f",
+            "fill": "#ff7f7f",
+            "label": true,
+            "label-position": "n",
+            "color": "#000000"
+        },
+        "nodes": [
+            "8a7af555e82f9287",
+            "a85d93b380c3b18f"
+        ],
+        "x": 1314,
+        "y": 679,
+        "w": 492,
+        "h": 82
+    },
+    {
+        "id": "4f4afdb04fe26755",
+        "type": "mqtt in",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "",
+        "topic": "sensores/ambiente",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4c42f4f5f0c456f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "5219c351647bf7d1"
+            ]
+        ]
+    },
+    {
+        "id": "5219c351647bf7d1",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "formateador",
+        "func": "const temperatura = msg.payload.temperatura;\nconst humedad = msg.payload.humedad;\nconst dispositivo = msg.payload.dispositivo;\n\n\nmsg.payload = `ambiente,dispositivo=${dispositivo} temperatura=${temperatura},humedad=${humedad}`;\nmsg.datos = {\n    dispositivo: dispositivo,\n    temperatura: temperatura,\n    humedad: humedad\n};\n\nreturn msg\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 200,
+        "wires": [
+            [
+                "da554baf8f593e2d",
+                "9768c6282fa76537",
+                "e533bb0c98333d22"
+            ]
+        ]
+    },
+    {
+        "id": "da554baf8f593e2d",
+        "type": "http request",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "influx-post",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "body",
+        "url": "influxdb-1:8086/write?db=iot",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": true,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "Content-Type",
+                "keyValue": "",
+                "valueType": "text/plain",
+                "valueValue": ""
+            }
+        ],
+        "x": 610,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "17d03bd9282daee9",
+        "type": "telegram command",
+        "z": "d20f0f62e4603041",
+        "g": "bef545520eb9b7d4",
+        "name": "",
+        "command": "/configurar_temperatura",
+        "description": "Configuracion de temperatura",
+        "registercommand": false,
+        "language": "",
+        "scope": "all_private_chats",
+        "bot": "93419c6c57c14bea",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 940,
+        "wires": [
+            [
+                "7e2fe7f12b575f2d",
+                "be6db7dcc95a648d"
+            ]
+        ]
+    },
+    {
+        "id": "8299cc64f77e3a76",
+        "type": "telegram command",
+        "z": "d20f0f62e4603041",
+        "g": "098a6cd06c5e44f4",
+        "name": "",
+        "command": "/configurar_humedad",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "93419c6c57c14bea",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 680,
+        "wires": [
+            [
+                "ef28305e8e0c67d5",
+                "aada4976ce658e3f"
+            ]
+        ]
+    },
+    {
+        "id": "de88cc409ff3a230",
+        "type": "telegram sender",
+        "z": "d20f0f62e4603041",
+        "g": "bef545520eb9b7d4",
+        "name": "",
+        "bot": "93419c6c57c14bea",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 830,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2de43c3baae7866a",
+        "type": "telegram sender",
+        "z": "d20f0f62e4603041",
+        "g": "098a6cd06c5e44f4",
+        "name": "",
+        "bot": "93419c6c57c14bea",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 930,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1c6a4bbe384c678",
+        "type": "telegram command",
+        "z": "d20f0f62e4603041",
+        "g": "0846c087dc4e3cf7",
+        "name": "",
+        "command": "/configurar_deep_sleep",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "93419c6c57c14bea",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 440,
+        "wires": [
+            [
+                "9c1cbf425e4a8795",
+                "9954703499278e9a"
+            ]
+        ]
+    },
+    {
+        "id": "edaff2f27ff715d7",
+        "type": "telegram sender",
+        "z": "d20f0f62e4603041",
+        "g": "0846c087dc4e3cf7",
+        "name": "",
+        "bot": "93419c6c57c14bea",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9c1cbf425e4a8795",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "0846c087dc4e3cf7",
+        "name": "Notificar configuración de deep_sleep",
+        "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    msg.payload.content = \"Por favor use el comando ingresando el tiempo deseado en minutos, los valores validos son enteros mayores a 0\";\n    return msg;\n}\n\nconst value = Number(content);\n\nif (typeof value === 'number' && value > 0){\n    msg.payload.content = `valor de ${value}' configurado como tiempo entre mediciones`;\n}\nelse {\n    msg.payload.content = \"ups\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 380,
+        "wires": [
+            [
+                "edaff2f27ff715d7"
+            ]
+        ]
+    },
+    {
+        "id": "9954703499278e9a",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "0846c087dc4e3cf7",
+        "name": "Evaluación de configuración de deep_sleep",
+        "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    return \"\";\n}\nelse {\n    const value = Number(content);\n\n    if (typeof value === 'number' && value > 0 ){\n        msg.payload = {valor: value, limite:\"deep_sleep\"};\n        return msg;\n    }\n    else {\n        return \"\"\n    }\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "89f87ffb5ce5e38c"
+            ]
+        ]
+    },
+    {
+        "id": "89f87ffb5ce5e38c",
+        "type": "mqtt out",
+        "z": "d20f0f62e4603041",
+        "g": "0846c087dc4e3cf7",
+        "name": "",
+        "topic": "sensores/configuracion/deep_sleep",
+        "qos": "1",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4c42f4f5f0c456f7",
+        "x": 840,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "01391d5ef96f5018",
+        "type": "mqtt in",
+        "z": "d20f0f62e4603041",
+        "name": "",
+        "topic": "sensores/configuracion/deep_sleep",
+        "qos": "1",
+        "datatype": "auto-detect",
+        "broker": "4c42f4f5f0c456f7",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 1820,
+        "y": 420,
+        "wires": [
+            [
+                "531b5e47b68e1c9b"
+            ]
+        ]
+    },
+    {
+        "id": "531b5e47b68e1c9b",
+        "type": "debug",
+        "z": "d20f0f62e4603041",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2080,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3618fb9d8488f5f4",
+        "type": "telegram command",
+        "z": "d20f0f62e4603041",
+        "g": "eb0b1a8af82af203",
+        "name": "",
+        "command": "/suscribirse",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "93419c6c57c14bea",
+        "strict": false,
+        "hasresponse": false,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 1,
+        "x": 1270,
+        "y": 460,
+        "wires": [
+            [
+                "048d0c1f2e202d93"
+            ]
+        ]
+    },
+    {
+        "id": "048d0c1f2e202d93",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "eb0b1a8af82af203",
+        "name": "Guardar suscripción al bot",
+        "func": "if(global.keys().includes(\"chats\")){\n    const id = msg.payload.chatId;\n    if(!global.get(\"chats\").includes(id))\n        global.get(\"chats\").push(id)\n    msg = {}\n    msg.chats = global.get(\"chats\")\n    msg.plop=\"Fue por aqui\"\n    return msg\n}\nelse{\n    const id = msg.payload.chatId\n    global.set(\"chats\", [id]);\n    msg = {}\n    msg.keys = global.keys()\n    msg.chats = global.get(\"chats\")\n    msg.plop=\"Fue por allí\"\n    return msg\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1510,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8a7af555e82f9287",
+        "type": "mqtt out",
+        "z": "d20f0f62e4603041",
+        "g": "d9be8a935178fd0d",
+        "name": "",
+        "topic": "sensores/ambiente",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4c42f4f5f0c456f7",
+        "x": 1690,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a85d93b380c3b18f",
+        "type": "inject",
+        "z": "d20f0f62e4603041",
+        "g": "d9be8a935178fd0d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"temperatura\":10,\"humedad\":10,\"dispositivo\":\"Mbappe\"}",
+        "payloadType": "json",
+        "x": 1410,
+        "y": 720,
+        "wires": [
+            [
+                "8a7af555e82f9287"
+            ]
+        ]
+    },
+    {
+        "id": "8b901423d6a56638",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "alertar",
+        "func": "let retorno = [[]]\nconst suscriptos = global.get(\"chats\");\n\nsuscriptos.forEach(function (suscripto) {\n    const temp = {};\n    temp.payload = {};\n    temp.payload.content = msg.mensaje\n    temp.payload.type = \"message\"\n    temp.payload.chatId = suscripto\n    retorno[0].push(temp)\n\n});\n\n\nreturn retorno;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1070,
+        "y": 180,
+        "wires": [
+            [
+                "6f2f979de0c7e7cb"
+            ]
+        ]
+    },
+    {
+        "id": "be6db7dcc95a648d",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "bef545520eb9b7d4",
+        "name": "Notificar configuración de temperatura",
+        "func": "const content = msg.payload.content;\n\nif(content === \"\"){\n    msg.payload.content = \"Por favor use el comando ingresando la primero la temperatura minima y separada de un espacio la temperatura maxima deseada a configurar los valores validos son desde 0 hasta 100 C°\";\n    return msg;\n}\n\nconst partes = msg.payload.content.trim().split(/\\s+/);\n\n// partes[0] = \"/comando\", partes[1] = min, partes[2] = max\nif (partes.length !== 2) {\n    node.warn(\"Formato inválido: \" + msg.payload.content);\n    msg.payload.content = \"Formato invalido ingrese la temperatura minima y la maxima separadas con un espacio nada mas\"\n    return msg;\n}\n\n  const temperatura_minima = parseFloat(partes[0]);\n  const temperatura_maxima = parseFloat(partes[1]);\nif (!(typeof temperatura_minima === 'number')){\n    msg.payload.content = \"La temperatura minima debe ser un numero\";\n} else if (!(temperatura_minima >= 0 && temperatura_minima <= 100)){\n    msg.payload.content = \"La temperatura minima estar de 0 a 100 C° \";\n} else if (!(typeof temperatura_maxima === 'number')) {\n    msg.payload.content = \"La temperatura Maxima debe ser un numero\";\n} else if (!(temperatura_maxima >= 0 && temperatura_maxima <= 100)) {\n    msg.payload.content = \"La temperatura minima estar de 0 a 100 C°\";\n} else if (temperatura_maxima <= temperatura_minima){\n    msg.payload.content = \"La temperatura maxima debe ser mayor a la temperatura minima\";\n} else{\n    msg.payload.content = \"Configuracion exitosa: Temperatura minima \"+ temperatura_minima +\" y Temperatura maxima \" + temperatura_maxima;\n}\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 880,
+        "wires": [
+            [
+                "de88cc409ff3a230"
+            ]
+        ]
+    },
+    {
+        "id": "d0f3288d9f3140a9",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "bef545520eb9b7d4",
+        "name": "Guardar temperatura",
+        "func": "global.set(\"alertaTemperaturaMin\", msg.temperatura_minima);\nglobal.set(\"alertaTemperaturaMax\", msg.temperatura_maxima);\n\n\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7e2fe7f12b575f2d",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "bef545520eb9b7d4",
+        "name": "Evaluación de rangos de temperatura",
+        "func": "const partes = msg.payload.content.trim().split(/\\s+/);\n\nif (partes.length !== 2) {\n    return null; // no propaga el mensaje\n}\n\nconst temperatura_minima = parseFloat(partes[0]);\nconst temperatura_maxima = parseFloat(partes[1]);\n\nif (isNaN(temperatura_minima) || isNaN(temperatura_maxima)) {\n    return null;\n}\n\nif (temperatura_minima >= temperatura_maxima) {\n    return null;\n}\n\nmsg.temperatura_minima = temperatura_minima;\nmsg.temperatura_maxima = temperatura_maxima;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 980,
+        "wires": [
+            [
+                "d0f3288d9f3140a9"
+            ]
+        ]
+    },
+    {
+        "id": "aada4976ce658e3f",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "098a6cd06c5e44f4",
+        "name": "Notificar configuración de humedad",
+        "func": "// partes[0] = min, partes[1] = max\nconst content = msg.payload.content;\n\nif (content === \"\") {\n    msg.payload.content = \"Por favor use el comando ingresando la primero la humedad minima y separada de un espacio la humedad maxima deseada a configurar los valores validos son desde 0 hasta 100 % \";\n    return msg;\n}\n\nconst partes = msg.payload.content.trim().split(/\\s+/);\n\n// partes[0] = min, partes[1] = max\nif (partes.length !== 2) {\n    node.warn(\"Formato inválido: \" + msg.payload.content);\n    msg.payload.content = \"Formato invalido ingrese la humedad minima y la maxima separadas con un espacio nada mas\";\n    return msg;\n}\n\nconst humedad_minima = parseFloat(partes[0]);\nconst humedad_maxima = parseFloat(partes[1]);\n\nif (!(typeof humedad_minima === 'number')) {\n    msg.payload.content = \"La humedad minima debe ser un numero\";\n} else if (!(humedad_minima >= 0 && humedad_minima <= 100)) {\n    msg.payload.content = \"La humedad minima debe estar de 0 a 100 %\";\n} else if (!(typeof humedad_maxima === 'number')) {\n    msg.payload.content = \"La humedad Maxima debe ser un numero\";\n} else if (!(humedad_maxima >= 0 && humedad_maxima <= 100)) {\n    msg.payload.content = \"La humedad maxima debe estar de 0 a 100 %\";\n} else if (humedad_maxima <= humedad_minima) {\n    msg.payload.content = \"La humedad maxima debe ser mayor a la humedad minima\";\n} else {\n    msg.payload.content = \"Configuracion exitosa: Humedad minima \" +\n        humedad_minima + \" y Humedad maxima \" + humedad_maxima;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 620,
+        "wires": [
+            [
+                "2de43c3baae7866a"
+            ]
+        ]
+    },
+    {
+        "id": "1fdfd66cced5044a",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "098a6cd06c5e44f4",
+        "name": "Guardar rangos de humedad",
+        "func": "global.set(\"alertaHumedadMin\", msg.humedad_minima);\nglobal.set(\"alertaHumedadMax\",msg.humedad_maxima)\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 780,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef28305e8e0c67d5",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "098a6cd06c5e44f4",
+        "name": "Evaluación de rangos de humedad",
+        "func": "const partes = msg.payload.content.trim().split(/\\s+/);\n\nif (partes.length !== 2) {\n    return null; // no propaga el mensaje\n}\n\nconst humedad_minima = parseFloat(partes[0]);\nconst humedad_maxima = parseFloat(partes[1]);\n\nif (isNaN(humedad_minima) || isNaN(humedad_maxima)) {\n    return null;\n}\n\nif (humedad_minima >= humedad_maxima) {\n    return null;\n}\n\nmsg.humedad_minima = humedad_minima;\nmsg.humedad_maxima = humedad_maxima;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 720,
+        "wires": [
+            [
+                "1fdfd66cced5044a"
+            ]
+        ]
+    },
+    {
+        "id": "b3eff606d23c8082",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Temperatura alta",
+        "func": "const valores = msg.datos;\n\n\nmsg.mensaje = `La temperatura esta alta :( se detecto ${valores.temperatura} °C`\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 140,
+        "wires": [
+            [
+                "8b901423d6a56638"
+            ]
+        ]
+    },
+    {
+        "id": "e533bb0c98333d22",
+        "type": "switch",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Evaluación temperatura",
+        "property": "datos.temperatura",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lte",
+                "v": "alertaTemperaturaMin",
+                "vt": "global"
+            },
+            {
+                "t": "gte",
+                "v": "alertaTemperaturaMax",
+                "vt": "global"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 120,
+        "wires": [
+            [
+                "4618cdba4ff046c3"
+            ],
+            [
+                "b3eff606d23c8082"
+            ]
+        ]
+    },
+    {
+        "id": "06d1d8e478f42a55",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Humedad alta",
+        "func": "const valores = msg.datos;\n\n\nmsg.mensaje = `La humedad esta alta :( se detecto ${valores.humedad} °C`\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 200,
+        "wires": [
+            [
+                "8b901423d6a56638"
+            ]
+        ]
+    },
+    {
+        "id": "9768c6282fa76537",
+        "type": "switch",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Evaluación humedad",
+        "property": "datos.humedad",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "alertaHumedadMax",
+                "vt": "global"
+            },
+            {
+                "t": "lte",
+                "v": "alertaHumedadMin",
+                "vt": "global"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 620,
+        "y": 220,
+        "wires": [
+            [
+                "06d1d8e478f42a55"
+            ],
+            [
+                "1803b8fe12e74fb9"
+            ]
+        ]
+    },
+    {
+        "id": "1803b8fe12e74fb9",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Humedad baja",
+        "func": "const valores = msg.datos;\n\n\nmsg.mensaje = `La humedad esta baja :( se detecto ${valores.temperatura} °C`\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 240,
+        "wires": [
+            [
+                "8b901423d6a56638"
+            ]
+        ]
+    },
+    {
+        "id": "4618cdba4ff046c3",
+        "type": "function",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "Temperatura baja",
+        "func": "const valores = msg.datos;\n\n\nmsg.mensaje = `La temperatura esta baja :( se detecto ${valores.temperatura} °C`\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 850,
+        "y": 100,
+        "wires": [
+            [
+                "8b901423d6a56638"
+            ]
+        ]
+    },
+    {
+        "id": "6f2f979de0c7e7cb",
+        "type": "telegram sender",
+        "z": "d20f0f62e4603041",
+        "g": "03b06bbd531e1f7e",
+        "name": "",
+        "bot": "93419c6c57c14bea",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1250,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c42f4f5f0c456f7",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mqtt",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "93419c6c57c14bea",
+        "type": "telegram bot",
+        "botname": "Iot-test",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "b0fe66e3a33c5149",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-telegrambot": "18.0.0"
+        }
+    }
+]
