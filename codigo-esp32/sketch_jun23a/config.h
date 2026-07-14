@@ -3,6 +3,7 @@
 
 /*Sección conexiónes al modulo*/
 #define PIN_DHT 4
+#define DHT_TYPE DHT11
 
 /*Sección de configuraciones */
 #define DEFAULT_DEEP_SLEEP_TIME 1

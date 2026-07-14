@@ -3,6 +3,11 @@
 #include <ArduinoJson.h>
 #include <WiFi.h>
 #include <Preferences.h>
+#include <DHT.h>
+
+
+
+DHT dht(PIN_DHT, DHT_TYPE);
 
 extern unsigned int deep_sleep_time;
 extern Preferences prefs;
@@ -49,8 +54,15 @@ void mqttCallBack(char *topic, byte *payload, unsigned int length){
 }
 
 void publicar_ambiente(){
-  float newTemp = 5;
-  float newHum = 5;
+  dht.begin();
+  float newTemp = dht.readTemperature();
+  float newHum = dht.readHumidity();
+
+  Serial.println("VALORES");
+  Serial.print(newTemp);
+  Serial.print(" ");
+  Serial.println(newHum);
+
 
   if (isnan(newTemp) || isnan(newHum)){
     Serial.println("Error leyendo sensor");
